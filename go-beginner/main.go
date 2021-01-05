@@ -75,6 +75,7 @@ func (p *Publisher)sendTopic(sub subscriber,topic topicFunc,v interface{},wg *sy
 	select {
 	case sub<-v:
 	case <-time.After(p.timeout):
+		fmt.Println("没有发布成功一次")
 	}
 }
 
@@ -82,7 +83,6 @@ func (p *Publisher)sendTopic(sub subscriber,topic topicFunc,v interface{},wg *sy
 func (p *Publisher) Close() {
 	p.m.Lock()
 	defer p.m.Unlock()
-
 	for sub:=range p.subscribers{
 		delete(p.subscribers,sub)
 	}
