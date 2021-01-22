@@ -17,6 +17,7 @@ func main(){
 func foo(x string)  {
 	fmt.Println(x)
 }
+
 //func(string)就够了
 func foo1(f func(string))  {
 	f("gg")
