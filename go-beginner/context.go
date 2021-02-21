@@ -10,8 +10,9 @@ func main()  {
 	ctx:=context.Background()
 	ctx1,cancel1:=context.WithCancel(ctx)
 	ctx2,_:=context.WithCancel(ctx1)
-	go f1(ctx1)
-	go f2(ctx2)
+	//go f1(ctx1)
+	//go f2(ctx2)
+	go f3(ctx2)
 	time.Sleep(5*time.Second)
 	cancel1()
 
@@ -46,4 +47,12 @@ func f2a(ctx1 context.Context){
 
 		}
 	}
+}
+func f3(ctx1 context.Context)  {
+	fmt.Println(22626)
+	select {
+	case <-ctx1.Done():
+	default:	//如果没有default，就只在一个case中等待
+	}
+	fmt.Println("finish")
 }
