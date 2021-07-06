@@ -2,11 +2,9 @@ package main
 
 import "fmt"
 
-func main()  {
-	str:="ddd11"
-	//str[0]='d' 不允许
-	bytestr:=[]byte(str)
-	bytestr[0]='n'
-	str1:=string(bytestr)
+var str1 ="\\ldsjfldf"
+func main() {
+	str1=str1[:len(str1)-2]
+	str1+="1"
 	fmt.Println(str1)
 }
