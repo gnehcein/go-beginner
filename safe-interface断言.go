@@ -22,6 +22,7 @@ func (b Bird) Walk() {
 func (d *Dog) Walk() { //因为这里是用的指针传递，所以当调用接口方法时，必须要传递地址，不能是值。
 	fmt.Println("the dog can walk!")
 }
+
 func main() {
 	var i interface{} //声明一个接口对象
 	i = new(Bird)     //创建一个Bird结构体变量，返回的是一个结构体指针，并赋值给接口
